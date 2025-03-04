@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref, reactive, computed } from 'vue';
+import { defineComponent, ref, reactive, computed, watch } from 'vue';
 
 interface User {
 	firstName: string;
@@ -16,12 +16,49 @@ export default defineComponent({
 			lastName: 'Doe',
 			age: 7
 		});
+
+		// 计算属性
 		const buttonStatus = computed<{ text: string; disabled: boolean }>(() => {
 			return {
 				text: user.age >= 10 ? '可以参加' : '未满 10 岁不可已参加',
 				disabled: user.age < 10
 			};
 		});
+
+		// 监听器 watch
+
+		// 监听基础类型的响应式数据
+		watch(
+			count,
+			(newVal, oldVal) => {
+				console.log('监听基础类型的响应式数据', newVal, oldVal);
+
+				document.title = `You clicked ${newVal} times`;
+			},
+			{
+				immediate: true,
+				flush: 'post' // 回调函数执行的时机: pre:dom 更新之前;post:dom 更新之后
+			}
+		);
+		// 监听响应式对象类型的属性
+		watch(
+			() => user.age, // getter function
+			(newVal, oldVal) => {
+				console.log('监听对象类型的属性', newVal, oldVal);
+			}
+		);
+		watch(
+			user, // getter function
+			(newVal, oldVal) => {
+				console.log('监听响应式对象类型', newVal, oldVal);
+			}
+		);
+		watch(
+			[count, () => user.age], // getter function
+			(newVal, oldVal) => {
+				console.log('监听一组响应式数据', newVal, oldVal);
+			}
+		);
 
 		const increase = () => {
 			if (typeof count.value === 'number') {
