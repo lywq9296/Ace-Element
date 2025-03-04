@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc -b && vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"push": "git push gitee vue3-basic && git push github vue3-basic"
 	},
 	"dependencies": {
 		"vue": "^3.5.13"
