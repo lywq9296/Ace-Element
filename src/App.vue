@@ -1,11 +1,12 @@
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue';
+import { defineComponent, ref, reactive, computed } from 'vue';
 
 interface User {
 	firstName: string;
 	lastName: string;
 	age: number;
 }
+
 export default defineComponent({
 	name: 'App',
 	setup() {
@@ -13,7 +14,13 @@ export default defineComponent({
 		const user = reactive<User>({
 			firstName: 'John',
 			lastName: 'Doe',
-			age: 18
+			age: 7
+		});
+		const buttonStatus = computed<{ text: string; disabled: boolean }>(() => {
+			return {
+				text: user.age >= 10 ? '可以参加' : '未满 10 岁不可已参加',
+				disabled: user.age < 10
+			};
 		});
 
 		const increase = () => {
@@ -24,7 +31,12 @@ export default defineComponent({
 			user.age++;
 		};
 
-		return { count, increase, user };
+		return {
+			count,
+			increase,
+			user,
+			buttonStatus
+		};
 	}
 });
 </script>
@@ -34,6 +46,9 @@ export default defineComponent({
 		<div>
 			<h1>{{ count }}, {{ user.age }}</h1>
 			<button type="button" @click="increase">Increase</button>
+			<button type="button" :disabled="buttonStatus.disabled" @click="increase">
+				{{ buttonStatus.text }}
+			</button>
 		</div>
 		<a href="https://vite.dev" target="_blank">
 			<img src="/vite.svg" class="logo" alt="Vite logo" />
