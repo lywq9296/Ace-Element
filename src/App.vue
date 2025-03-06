@@ -1,6 +1,8 @@
 <script setup lang="ts">
 // import { defineComponent } from 'vue';
+import { reactive } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
+import MyProfile from './components/MyProfile.vue';
 import useMousePosition from './composables/useMousePosition';
 import useURLLoader from './composables/useURLLoader';
 
@@ -12,6 +14,18 @@ interface DogResult {
 interface TodoResult {
 	title: string;
 }
+
+interface User {
+	firstName: string;
+	lastName: string;
+	age: number;
+}
+
+const user = reactive<User>({
+	firstName: 'John',
+	lastName: 'Doe',
+	age: 18
+});
 
 /* const x = ref(0);
 		const y = ref(0);
@@ -34,6 +48,10 @@ const { loading, result } = useURLLoader<DogResult>(
 const { loading: todoLoading, result: todoResult } = useURLLoader<TodoResult>(
 	'https://jsonplaceholder.typicode.com/todos/1'
 );
+
+const onChange = (hidden: boolean) => {
+	document.title = hidden ? '年龄被隐藏' : '年龄显示';
+};
 
 // export default defineComponent({
 // 	components: { HelloWorld },
@@ -66,7 +84,7 @@ const { loading: todoLoading, result: todoResult } = useURLLoader<TodoResult>(
 		</a>
 	</div>
 	<HelloWorld msg="Vite + Vue" />
-
+	<MyProfile :user="user" @change="onChange" />
 	<div>
 		<p>Client Position</p>
 		<p>X:{{ x }}, Y:{{ y }}</p>
