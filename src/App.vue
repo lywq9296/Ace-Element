@@ -18,12 +18,16 @@ interface User {
 export default defineComponent({
 	name: 'App',
 	setup() {
+		// ref, reactive
 		const count = ref<number | string>(0);
 		const user = reactive<User>({
 			firstName: 'John',
 			lastName: 'Doe',
 			age: 7
 		});
+
+		// 模板引用
+		const ageRef = ref<HTMLHeadingElement | null>(null);
 
 		// 计算属性
 		const buttonStatus = computed<{ text: string; disabled: boolean }>(() => {
@@ -76,9 +80,14 @@ export default defineComponent({
 			user.age++;
 		};
 
+		console.log('in setup', ageRef.value);
 		// 生命周期
 		onMounted(() => {
 			console.log('onMounted');
+
+			if (ageRef.value) {
+				console.log(ageRef.value);
+			}
 		});
 		onUpdated(() => {
 			console.log('onUpdated: ', document.getElementById('age')?.innerHTML);
@@ -88,7 +97,8 @@ export default defineComponent({
 			count,
 			increase,
 			user,
-			buttonStatus
+			buttonStatus,
+			ageRef
 		};
 	}
 });
@@ -98,7 +108,7 @@ export default defineComponent({
 	<div>
 		<div>
 			<h1>{{ count }}</h1>
-			<h2 id="age">age: {{ user.age }}</h2>
+			<h2 id="age" ref="ageRef">age: {{ user.age }}</h2>
 			<button type="button" @click="increase">Increase</button>
 			<button type="button" :disabled="buttonStatus.disabled" @click="increase">
 				{{ buttonStatus.text }}
