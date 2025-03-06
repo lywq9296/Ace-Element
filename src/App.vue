@@ -1,5 +1,13 @@
 <script lang="ts">
-import { defineComponent, ref, reactive, computed, watch } from 'vue';
+import {
+	defineComponent,
+	ref,
+	reactive,
+	computed,
+	watch,
+	onMounted,
+	onUpdated
+} from 'vue';
 
 interface User {
 	firstName: string;
@@ -68,6 +76,14 @@ export default defineComponent({
 			user.age++;
 		};
 
+		// 生命周期
+		onMounted(() => {
+			console.log('onMounted');
+		});
+		onUpdated(() => {
+			console.log('onUpdated: ', document.getElementById('age')?.innerHTML);
+		});
+
 		return {
 			count,
 			increase,
@@ -81,7 +97,8 @@ export default defineComponent({
 <template>
 	<div>
 		<div>
-			<h1>{{ count }}, {{ user.age }}</h1>
+			<h1>{{ count }}</h1>
+			<h2 id="age">age: {{ user.age }}</h2>
 			<button type="button" @click="increase">Increase</button>
 			<button type="button" :disabled="buttonStatus.disabled" @click="increase">
 				{{ buttonStatus.text }}
