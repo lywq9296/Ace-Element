@@ -8,6 +8,7 @@ import {
 	onMounted,
 	onUpdated
 } from 'vue';
+import MyProfile from './components/ MyProfile.vue';
 
 interface User {
 	firstName: string;
@@ -17,13 +18,14 @@ interface User {
 
 export default defineComponent({
 	name: 'App',
+	components: { MyProfile },
 	setup() {
 		// ref, reactive
 		const count = ref<number | string>(0);
 		const user = reactive<User>({
 			firstName: 'John',
 			lastName: 'Doe',
-			age: 7
+			age: 18
 		});
 
 		// 模板引用
@@ -36,6 +38,7 @@ export default defineComponent({
 				disabled: user.age < 10
 			};
 		});
+		const fullName = computed(() => user.firstName + '·' + user.lastName);
 
 		// 监听器 watch
 
@@ -98,6 +101,7 @@ export default defineComponent({
 			increase,
 			user,
 			buttonStatus,
+			fullName,
 			ageRef
 		};
 	}
@@ -120,6 +124,7 @@ export default defineComponent({
 		<a href="https://vuejs.org/" target="_blank">
 			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
 		</a>
+		<MyProfile :age="user.age" :name="fullName" :user="user" />
 	</div>
 </template>
 
