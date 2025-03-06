@@ -1,5 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+// import { defineComponent } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import useMousePosition from './composables/useMousePosition';
 import useURLLoader from './composables/useURLLoader';
@@ -13,10 +13,7 @@ interface TodoResult {
 	title: string;
 }
 
-export default defineComponent({
-	components: { HelloWorld },
-	setup() {
-		/* const x = ref(0);
+/* const x = ref(0);
 		const y = ref(0);
 
 		const updateMouse = (e: MouseEvent) => {
@@ -30,16 +27,20 @@ export default defineComponent({
 		onUnmounted(() => {
 			document.removeEventListener('click', updateMouse);
 		}); */
-		const { x, y } = useMousePosition();
-		const { loading, result } = useURLLoader<DogResult>(
-			'https://dog.ceo/api/breeds/image/random'
-		);
-		const { loading: todoLoading, result: todoResult } =
-			useURLLoader<TodoResult>('https://jsonplaceholder.typicode.com/todos/1');
+const { x, y } = useMousePosition();
+const { loading, result } = useURLLoader<DogResult>(
+	'https://dog.ceo/api/breeds/image/random'
+);
+const { loading: todoLoading, result: todoResult } = useURLLoader<TodoResult>(
+	'https://jsonplaceholder.typicode.com/todos/1'
+);
 
-		return { x, y, loading, result, todoLoading, todoResult };
-	}
-});
+// export default defineComponent({
+// 	components: { HelloWorld },
+// 	setup() {
+// 		return { x, y, loading, result, todoLoading, todoResult };
+// 	}
+// });
 </script>
 
 <template>
