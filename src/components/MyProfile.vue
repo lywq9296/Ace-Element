@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import HelloWorld from './HelloWorld.vue';
 
 interface IPerson {
 	firstName: string;
@@ -38,6 +39,8 @@ const toggleHidden = () => {
 </script>
 
 <template>
+	<h1>Hello World</h1>
+	<HelloWorld msg="Vite + Vue" />
 	<h1>Name: {{ user.firstName }}·{{ user.lastName }}</h1>
 	<h1 v-if="!isHidden">Age: {{ user.age }}</h1>
 	<h1 v-if="!isHidden">doubleAge: {{ doubleAge }}</h1>

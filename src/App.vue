@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // import { defineComponent } from 'vue';
-import { reactive } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { provide, reactive, ref } from 'vue';
 import MyProfile from './components/MyProfile.vue';
 import useMousePosition from './composables/useMousePosition';
 import useURLLoader from './composables/useURLLoader';
+import { langKey } from './keys';
 
 interface DogResult {
 	message: string;
@@ -27,6 +27,12 @@ const user = reactive<User>({
 	age: 18
 });
 
+const lang = ref('zh-CN');
+provide(langKey, lang);
+provide('country', 'China');
+const changeLanguage = (type: string) => {
+	lang.value = type;
+};
 /* const x = ref(0);
 		const y = ref(0);
 
@@ -64,6 +70,10 @@ const onChange = (hidden: boolean) => {
 <template>
 	<div>
 		<div>
+			<button @click="changeLanguage('zh-CN')">中文</button>
+			<button @click="changeLanguage('en-US')">英文</button>
+		</div>
+		<div>
 			<h1 v-if="loading">Loading...</h1>
 			<img
 				v-if="!loading && result"
@@ -83,7 +93,6 @@ const onChange = (hidden: boolean) => {
 			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
 		</a>
 	</div>
-	<HelloWorld msg="Vite + Vue" />
 	<MyProfile :user="user" @change="onChange" />
 	<div>
 		<p>Client Position</p>
