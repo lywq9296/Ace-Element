@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { reactive } from 'vue';
+import { reactive, toRefs } from 'vue';
 
 interface IResult {
 	loading: boolean;
@@ -26,7 +26,7 @@ const useURLLoader = (url: string) => {
 			data.loading = false;
 		});
 
-	return data;
+	return toRefs(data);
 };
 
 export default useURLLoader;

@@ -22,9 +22,11 @@ export default defineComponent({
 			document.removeEventListener('click', updateMouse);
 		}); */
 		const { x, y } = useMousePosition();
-		const data = useURLLoader('https://dog.ceo/api/breeds/image/random');
+		const { loading, result } = useURLLoader(
+			'https://dog.ceo/api/breeds/image/random'
+		);
 
-		return { x, y, data };
+		return { x, y, loading, result };
 	}
 });
 </script>
@@ -32,8 +34,8 @@ export default defineComponent({
 <template>
 	<div>
 		<div>
-			<h1 v-if="data.loading">Loading...</h1>
-			<img v-else :src="data.result?.message" width="50%" alt="" />
+			<h1 v-if="loading">Loading...</h1>
+			<img v-else :src="result?.message" height="500" alt="" />
 		</div>
 		<a href="https://vite.dev" target="_blank">
 			<img src="/vite.svg" class="logo" alt="Vite logo" />
