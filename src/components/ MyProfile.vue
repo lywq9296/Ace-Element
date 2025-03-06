@@ -1,5 +1,5 @@
 <script lang="ts">
-import { computed, defineComponent, type PropType } from 'vue';
+import { computed, defineComponent, ref, type PropType } from 'vue';
 
 export default defineComponent({
 	name: 'MyProfile',
@@ -21,11 +21,22 @@ export default defineComponent({
 			default: 18
 		}
 	},
-	setup(props) {
+	emits: ['change'],
+	setup(props, ctx) {
+		const isHidden = ref<boolean>(false);
+
 		const doubleAge = computed(() => props.user?.age * 2);
 
+		const toggleHide = () => {
+			isHidden.value = !isHidden.value;
+
+			ctx.emit('change', isHidden.value);
+		};
+
 		return {
-			doubleAge
+			isHidden,
+			doubleAge,
+			toggleHide
 		};
 	}
 });
@@ -34,8 +45,11 @@ export default defineComponent({
 <template>
 	<div class="profile-component">
 		<h1>Name: {{ user.firstName }}·{{ user.lastName }}</h1>
-		<h1>Age: {{ user.age }}</h1>
-		<h1>doubleAge: {{ doubleAge }}</h1>
+		<h1 v-if="!isHidden">Age: {{ user.age }}</h1>
+		<h1 v-if="!isHidden">doubleAge: {{ doubleAge }}</h1>
+		<button type="button" @click="toggleHide">
+			{{ isHidden ? '显示' : '隐藏' }}
+		</button>
 	</div>
 </template>
 

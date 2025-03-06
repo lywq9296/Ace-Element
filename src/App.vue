@@ -82,6 +82,9 @@ export default defineComponent({
 
 			user.age++;
 		};
+		const onChange = (hidden: boolean) => {
+			document.title = hidden ? '年龄被隐藏' : '年龄显示';
+		};
 
 		console.log('in setup', ageRef.value);
 		// 生命周期
@@ -99,6 +102,7 @@ export default defineComponent({
 		return {
 			count,
 			increase,
+			onChange,
 			user,
 			buttonStatus,
 			fullName,
@@ -124,7 +128,12 @@ export default defineComponent({
 		<a href="https://vuejs.org/" target="_blank">
 			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
 		</a>
-		<MyProfile :age="user.age" :name="fullName" :user="user" />
+		<MyProfile
+			:age="user.age"
+			:name="fullName"
+			:user="user"
+			@change="onChange"
+		/>
 	</div>
 </template>
 
