@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import useMousePosition from './composables/useMousePosition';
+import useURLLoader from './composables/useURLLoader';
 
 export default defineComponent({
 	components: { HelloWorld },
@@ -21,14 +22,19 @@ export default defineComponent({
 			document.removeEventListener('click', updateMouse);
 		}); */
 		const { x, y } = useMousePosition();
+		const data = useURLLoader('https://dog.ceo/api/breeds/image/random');
 
-		return { x, y };
+		return { x, y, data };
 	}
 });
 </script>
 
 <template>
 	<div>
+		<div>
+			<h1 v-if="data.loading">Loading...</h1>
+			<img v-else :src="data.result?.message" width="50%" alt="" />
+		</div>
 		<a href="https://vite.dev" target="_blank">
 			<img src="/vite.svg" class="logo" alt="Vite logo" />
 		</a>

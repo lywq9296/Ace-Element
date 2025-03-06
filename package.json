@@ -10,6 +10,7 @@
 		"push": "git push gitee vue3-composables && git push github vue3-composables"
 	},
 	"dependencies": {
+		"axios": "^1.8.1",
 		"vue": "^3.5.13"
 	},
 	"devDependencies": {
