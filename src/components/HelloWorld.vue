@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue';
-import { langKey } from '../keys';
+import { inject, ref, type Ref } from 'vue';
+import { langKey, userKey } from '../keys';
 
 defineProps<{ msg: string }>();
 
-const lang = inject(langKey);
-
+const langDefault = ref('zh-CN');
+const lang = inject<Ref>(langKey, langDefault);
+const currentUser = inject(userKey);
 const count = ref(0);
 </script>
 
@@ -19,7 +20,7 @@ const count = ref(0);
 			<code>components/HelloWorld.vue</code> to test HMR
 		</p>
 	</div>
-
+	{{ currentUser?.name }}
 	<p>
 		Check out
 		<a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
