@@ -1,5 +1,7 @@
-export const componentInstall = (component) => {
-  component.install = (app) => {
+import type { App } from 'vue';
+
+export const withInstall = (component: any) => {
+  component.install = (app: App<Element>) => {
     app.component(component.name, component);
   };
 

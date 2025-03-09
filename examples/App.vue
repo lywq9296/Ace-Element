@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
+import { IButton } from '@Vue3-Element/components';
 </script>
 
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <IButton type="primary" plain>Button</IButton>
+    <IButton type="primary">Primary Button</IButton>
+    <IButton type="success">Success Button</IButton>
+    <IButton type="info">Info Button</IButton>
+    <IButton type="info" disabled>Info Button</IButton>
   </div>
   <HelloWorld msg="Vite + Vue" />
 </template>
