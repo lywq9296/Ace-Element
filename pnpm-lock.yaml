@@ -70,6 +70,23 @@ importers:
         specifier: ^2.2.4
         version: 2.2.8(typescript@5.7.3)
 
+  examples:
+    dependencies:
+      '@Vue3-Element/components':
+        specifier: workspace:^
+        version: link:../packages/components
+      vue:
+        specifier: ^3.5.13
+        version: 3.5.13(typescript@5.7.3)
+
+  packages/components:
+    dependencies:
+      vue:
+        specifier: ^3.5.13
+        version: 3.5.13(typescript@5.7.3)
+
+  packages/utils: {}
+
 packages:
 
   '@babel/code-frame@7.26.2':
