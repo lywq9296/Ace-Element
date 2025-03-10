@@ -32,6 +32,10 @@ const count = ref(0);
     >.
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <h1>hello world</h1>
+  <h2>hello world</h2>
+  <h3>hello world</h3>
+  <hr />
 </template>
 
 <style scoped>

@@ -19,6 +19,9 @@ onMounted(() => {
     <IButton type="info">Info Button</IButton>
     <IButton type="info" disabled>Info Button</IButton>
   </div>
+  <div>
+    <a href="#">the link</a>
+  </div>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
