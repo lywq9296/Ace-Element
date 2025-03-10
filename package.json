@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write \"./**/*.{js,jsx,vue,ts,tsx,json,css,scss,md}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "push": "git push gitee main & git push github main "
   },
   "dependencies": {
     "vue": "^3.5.13"

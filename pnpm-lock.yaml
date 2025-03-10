@@ -81,11 +81,16 @@ importers:
 
   packages/components:
     dependencies:
+      '@Vue3-Element/theme':
+        specifier: workspace:^
+        version: link:../theme
       '@Vue3-Element/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/hooks: {}
+
+  packages/theme: {}
 
   packages/utils: {}
 

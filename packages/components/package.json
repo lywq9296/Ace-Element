@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@Vue3-Element/theme": "workspace:^",
     "@Vue3-Element/utils": "workspace:^"
   }
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import './style';
 import type { ButtonProps, ButtonSlots } from '../types';
 
 const name = 'IButton';
