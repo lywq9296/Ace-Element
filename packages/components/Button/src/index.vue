@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { ButtonProps, ButtonSlots } from '../types';
+import type { ButtonOptions, ButtonProps, ButtonSlots } from '../types';
 
 defineProps<ButtonProps>();
 
 defineSlots<ButtonSlots>();
 
-defineOptions({ name: 'IButton' });
+defineOptions<ButtonOptions>({ name: 'IButton' });
 </script>
 
 <template>

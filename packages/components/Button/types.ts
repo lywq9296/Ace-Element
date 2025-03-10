@@ -16,6 +16,10 @@ export interface ButtonSlots {
   default: (props: any) => Element;
 }
 
+export interface ButtonOptions {
+  name: string;
+}
+
 // 类型标注的方式定义 props 类型
 // export const buttonProps = {
 //   type: {
