@@ -1,15 +1,25 @@
 <script setup lang="ts">
-import type { ButtonOptions, ButtonProps, ButtonSlots } from '../types';
+import { ref } from 'vue';
 
-defineProps<ButtonProps>();
+import type { ButtonProps, ButtonSlots } from '../types';
+
+const name = 'IButton';
+
+defineOptions({ name });
+
+withDefaults(defineProps<ButtonProps>(), { nativeType: 'button' });
 
 defineSlots<ButtonSlots>();
 
-defineOptions<ButtonOptions>({ name: 'IButton' });
+const _ref = ref<HTMLButtonElement | null>(null);
+defineExpose({
+  ref: _ref,
+});
 </script>
 
 <template>
   <button
+    ref="_ref"
     class="i-button"
     :class="{
       [`i-button--${type}`]: type,
@@ -20,6 +30,8 @@ defineOptions<ButtonOptions>({ name: 'IButton' });
       'is-disabled': disabled,
     }"
     :disabled="disabled"
+    :autofocus="autofocus"
+    :type="nativeType"
   >
     <span v-if="$slots.default"><slot /></span>
   </button>

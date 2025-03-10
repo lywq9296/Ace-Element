@@ -1,11 +1,19 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import { IButton } from '@Vue3-Element/components';
+import type { ButtonInstance } from '@Vue3-Element/components/Button/types';
+
+const buttonRef = ref<ButtonInstance | null>(null);
+
+onMounted(() => {
+  console.log(buttonRef.value?.ref);
+});
 </script>
 
 <template>
   <div>
-    <IButton type="primary" plain>Button</IButton>
+    <IButton type="primary" plain ref="buttonRef">Button</IButton>
     <IButton type="primary">Primary Button</IButton>
     <IButton type="success">Success Button</IButton>
     <IButton type="info">Info Button</IButton>

@@ -2,6 +2,7 @@
 
 export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 export type ButtonSize = 'large' | 'small';
+export type ButtonNativeType = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps {
   type?: ButtonType;
@@ -10,14 +11,16 @@ export interface ButtonProps {
   round?: boolean;
   disabled?: boolean;
   circle?: boolean;
+  nativeType?: ButtonNativeType;
+  autofocus?: boolean;
 }
 
 export interface ButtonSlots {
   default: (props: any) => Element;
 }
 
-export interface ButtonOptions {
-  name: string;
+export interface ButtonInstance {
+  ref: HTMLButtonElement;
 }
 
 // 类型标注的方式定义 props 类型
