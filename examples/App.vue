@@ -17,6 +17,7 @@ onMounted(() => {
     <AceButton type="primary">Primary Button</AceButton>
     <AceButton type="success">Success Button</AceButton>
     <AceButton type="info">Info Button</AceButton>
+    <AceButton type="danger">Danger Button</AceButton>
     <AceButton type="info" disabled>Info Button</AceButton>
   </div>
   <div>
