@@ -110,7 +110,7 @@
     --ace-button-disabled-border-color: var(--ace-color-$(val)-light-5);
   }
 
-  .vk-button--$(val).is-plain {
+  .ace-button--$(val).is-plain {
     --ace-button-text-color: var(--ace-color-$(val));
     --ace-button-bg-color: var(--ace-color-$(val)-light-9);
     --ace-button-border-color: var(--ace-color-$(val)-light-5);
@@ -118,5 +118,20 @@
     --ace-button-hover-bg-color: var(--ace-color-$(val));
     --ace-button-hover-border-color: var(--ace-color-$(val));
     --ace-button-active-text-color: var(--ace-color-white);
+  }
+
+  .ace-button--large {
+    --ace-button-size: 40px;
+    height: var(--ace-button-size);
+    padding: 12px 19px;
+    font-size: var(--ace-font-size-base);
+    border-radius: var(--ace-border-radius-base);
+  }
+  .ace-button--small {
+    --ace-button-size: 24px;
+    height: var(--ace-button-size);
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--ace-border-radius-base) - 1px);
   }
 }
