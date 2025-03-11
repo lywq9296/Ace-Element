@@ -1,3 +1,1 @@
-import { default as IButton } from './Button';
-
-export default [IButton];
+export { default as AceButton } from './Button';

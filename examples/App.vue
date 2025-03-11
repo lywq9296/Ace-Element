@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-import { IButton } from '@Ace-Element/components';
+import { AceButton } from '@Ace-Element/components';
 import type { ButtonInstance } from '@Ace-Element/components/Button/types';
 
 const buttonRef = ref<ButtonInstance | null>(null);
@@ -13,11 +13,11 @@ onMounted(() => {
 
 <template>
   <div>
-    <IButton type="primary" plain ref="buttonRef">Button</IButton>
-    <IButton type="primary">Primary Button</IButton>
-    <IButton type="success">Success Button</IButton>
-    <IButton type="info">Info Button</IButton>
-    <IButton type="info" disabled>Info Button</IButton>
+    <AceButton plain ref="buttonRef">Plain Button</AceButton>
+    <AceButton type="primary">Primary Button</AceButton>
+    <AceButton type="success">Success Button</AceButton>
+    <AceButton type="info">Info Button</AceButton>
+    <AceButton type="info" disabled>Info Button</AceButton>
   </div>
   <div>
     <a href="#">the link</a>

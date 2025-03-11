@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import './style';
 import type { ButtonProps, ButtonSlots } from '../types';
 
-const name = 'IButton';
+const name = 'AceButton';
 
 defineOptions({ name });
 
@@ -20,10 +20,10 @@ defineExpose({
 <template>
   <button
     ref="_ref"
-    class="i-button"
+    class="ace-button"
     :class="{
-      [`i-button--${type}`]: type,
-      [`i-button--${size}`]: size,
+      [`ace-button--${type}`]: type,
+      [`ace-button--${size}`]: size,
       'is-plain': plain,
       'is-round': round,
       'is-circle': circle,

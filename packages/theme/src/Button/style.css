@@ -1,0 +1,94 @@
+.ace-button {
+  --ace-button-font-weight: var(--ace-font-weight-primary);
+  --ace-button-border-color: var(--ace-border-color);
+  --ace-button-bg-color: var(--ace-fill-color-blank);
+  --ace-button-text-color: var(--ace-text-color-regular);
+
+  --ace-button-disabled-text-color: var(--ace-disabled-text-color);
+  --ace-button-disabled-bg-color: var(--ace-fill-color-blank);
+  --ace-button-disabled-border-color: var(--ace-border-color-light);
+
+  --ace-button-hover-text-color: var(--ace-color-primary);
+  --ace-button-hover-bg-color: var(--ace-color-primary-light-9);
+  --ace-button-hover-border-color: var(--ace-color-primary-light-7);
+
+  --ace-button-active-text-color: var(--ace-button-hover-text-color);
+  --ace-button-active-border-color: var(--ace-color-primary);
+  --ace-button-active-bg-color: var(--ace-button-hover-bg-color);
+  --ace-button-outline-color: var(--ace-color-primary-light-5);
+  --ace-button-active-color: var(--ace-text-color-primary);
+}
+
+.ace-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--ace-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--ace-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--ace-button-bg-color);
+  border: var(--ace-border);
+  border-color: var(--ace-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--ace-font-size-base);
+  border-radius: var(--ace-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--ace-button-hover-text-color);
+    border-color: var(--ace-button-hover-border-color);
+    background-color: var(--ace-button-hover-bg-color);
+    outline: none;
+  }
+
+  &:active {
+    color: var(--ace-button-active-text-color);
+    border-color: var(--ace-button-active-border-color);
+    background-color: var(--ace-button-active-bg-color);
+    outline: none;
+  }
+
+  &.is-plain {
+    --ace-button-hover-text-color: var(--ace-color-primary);
+    --ace-button-hover-bg-color: var(--ace-fill-color-blank);
+    --ace-button-hover-border-color: var(--ace-color-primary);
+  }
+
+  /*round*/
+  &.is-round {
+    border-radius: var(--ace-border-radius-round);
+  }
+
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+
+  /*disabled*/
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--ace-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--ace-button-disabled-bg-color);
+    border-color: var(--ace-button-disabled-border-color);
+  }
+}
