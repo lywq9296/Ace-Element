@@ -92,3 +92,31 @@
     border-color: var(--ace-button-disabled-border-color);
   }
 }
+
+@each $val in primary, success, warning, info, danger {
+  .ace-button--$(val) {
+    --ace-button-text-color: var(--ace-color-white);
+    --ace-button-bg-color: var(--ace-color-$(val));
+    --ace-button-border-color: var(--ace-color-$(val));
+    --ace-button-outline-color: var(--ace-color-$(val)-light-5);
+    --ace-button-active-color: var(--ace-color-$(val)-dark-2);
+    --ace-button-hover-text-color: var(--ace-color-white);
+    --ace-button-hover-bg-color: var(--ace-color-$(val)-light-3);
+    --ace-button-hover-border-color: var(--ace-color-$(val)-light-3);
+    --ace-button-active-bg-color: var(--ace-color-$(val)-dark-2);
+    --ace-button-active-border-color: var(--ace-color-$(val)-dark-2);
+    --ace-button-disabled-text-color: var(--ace-color-white);
+    --ace-button-disabled-bg-color: var(--ace-color-$(val)-light-5);
+    --ace-button-disabled-border-color: var(--ace-color-$(val)-light-5);
+  }
+
+  .vk-button--$(val).is-plain {
+    --ace-button-text-color: var(--ace-color-$(val));
+    --ace-button-bg-color: var(--ace-color-$(val)-light-9);
+    --ace-button-border-color: var(--ace-color-$(val)-light-5);
+    --ace-button-hover-text-color: var(--ace-color-white);
+    --ace-button-hover-bg-color: var(--ace-color-$(val));
+    --ace-button-hover-border-color: var(--ace-color-$(val));
+    --ace-button-active-text-color: var(--ace-color-white);
+  }
+}
