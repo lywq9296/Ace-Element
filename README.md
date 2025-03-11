@@ -20,5 +20,5 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 - 安装所有依赖, 包括各个子包
   ```
-    pnpm -F "@Vue3-Element/*" i
+    pnpm -F "@Ace-Element/*" i
   ```

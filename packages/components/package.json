@@ -1,5 +1,5 @@
 {
-  "name": "@Vue3-Element/components",
+  "name": "@Ace-Element/components",
   "version": "1.0.0",
   "description": "",
   "module": "index.ts",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@Vue3-Element/theme": "workspace:^",
-    "@Vue3-Element/utils": "workspace:^"
+    "@Ace-Element/theme": "workspace:^",
+    "@Ace-Element/utils": "workspace:^"
   }
 }

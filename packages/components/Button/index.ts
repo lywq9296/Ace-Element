@@ -1,6 +1,6 @@
 import { default as Button } from './src/index.vue';
-import { withInstall } from '@Vue3-Element/utils';
-import '@Vue3-Element/theme/src/index.css';
+import { withInstall } from '@Ace-Element/utils';
+import '@Ace-Element/theme/src/index.css';
 
 export const IButton = Button;
 

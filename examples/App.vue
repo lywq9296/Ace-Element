@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-import { IButton } from '@Vue3-Element/components';
-import type { ButtonInstance } from '@Vue3-Element/components/Button/types';
+import { IButton } from '@Ace-Element/components';
+import type { ButtonInstance } from '@Ace-Element/components/Button/types';
 
 const buttonRef = ref<ButtonInstance | null>(null);
 
