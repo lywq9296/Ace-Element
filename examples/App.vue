@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-import { AceButton } from '@Ace-Element/components';
+import {
+  AceButton,
+  AceCollapse,
+  AceCollapseItem,
+} from '@Ace-Element/components';
 import type { ButtonInstance } from '@Ace-Element/components/Button/types';
 
 const buttonRef = ref<ButtonInstance | null>(null);
@@ -13,13 +17,39 @@ onMounted(() => {
 
 <template>
   <div>
-    <AceButton plain ref="buttonRef">Plain Button</AceButton>
-    <AceButton type="primary">Primary Button</AceButton>
-    <AceButton type="success">Success Button</AceButton>
-    <AceButton type="info">Info Button</AceButton>
-    <AceButton type="danger">Danger Button</AceButton>
-    <AceButton type="info" disabled>Info Button</AceButton>
+    <AceButton ref="buttonRef">Test Button</AceButton>
+    <AceButton plain>Plain Button</AceButton>
+    <AceButton round>Round Button</AceButton>
+    <AceButton circle>VK</AceButton>
+    <AceButton disabled>Disabled Button</AceButton><br /><br />
+    <AceButton type="primary">Primary</AceButton>
+    <AceButton type="success">Success</AceButton>
+    <AceButton type="info">Info</AceButton>
+    <AceButton type="warning">Warning</AceButton>
+    <AceButton type="danger">Danger</AceButton><br /><br />
+    <AceButton type="primary" plain>Primary</AceButton>
+    <AceButton type="success" plain>Success</AceButton>
+    <AceButton type="info" plain>Info</AceButton>
+    <AceButton type="warning" plain>Warning</AceButton>
+    <AceButton type="danger" plain>Danger</AceButton><br /><br />
+    <AceButton size="large">Large</AceButton>
+    <AceButton size="small">Small</AceButton>
   </div>
+  <AceCollapse>
+    <AceCollapseItem name="a">
+      <template #title>
+        <h1>nice title</h1>
+      </template>
+      <h1>headline title</h1>
+      <div>this is content a aaa</div>
+    </AceCollapseItem>
+    <AceCollapseItem name="b" title="nice title b item b">
+      <div>this is bbbbb test</div>
+    </AceCollapseItem>
+    <AceCollapseItem name="c" title="nice cccc" disabled>
+      <div>this is cccc test</div>
+    </AceCollapseItem>
+  </AceCollapse>
   <div>
     <a href="#">the link</a>
   </div>
