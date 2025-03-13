@@ -56,7 +56,9 @@
 
 .ace-enter-active,
 .ace-leave-active {
-  transition: height 0.2s ease-in-out;
+  transition:
+    height 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
 }
 
 /* .ace-enter-to, */

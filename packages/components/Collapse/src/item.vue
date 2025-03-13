@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue';
+import { computed, inject } from 'vue';
 import { collapseContextKey, type CollapseItemProps } from '../types';
 defineOptions({
   name: 'AceCollapseItem',
@@ -24,21 +24,27 @@ const handleClick = () => {
 const transitionEvents: Record<string, (el: HTMLElement) => void> = {
   beforeEnter(el) {
     el.style.height = '0px';
+    el.style.opacity = '0';
   },
   enter(el) {
     el.style.height = `${el.scrollHeight}px`;
+    el.style.opacity = '1';
   },
   afterEnter(el) {
     el.style.height = '';
+    el.style.opacity = '';
   },
   beforeLeave(el) {
     el.style.height = `${el.scrollHeight}px`;
+    el.style.opacity = '1';
   },
   leave(el) {
     el.style.height = '0px';
+    el.style.opacity = '0';
   },
   afterLeave(el) {
     el.style.height = '';
+    el.style.opacity = '';
   },
 };
 </script>
@@ -62,12 +68,10 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
       <slot name="title">{{ title }}</slot>
     </div>
     <Transition name="ace" v-on="transitionEvents">
-      <div
-        :id="`item_content_${name}`"
-        class="ace-collapse-item__content"
-        v-show="isCurrentActive"
-      >
-        <slot />
+      <div v-show="isCurrentActive">
+        <div :id="`item_content_${name}`" class="ace-collapse-item__content">
+          <slot />
+        </div>
       </div>
     </Transition>
   </div>
