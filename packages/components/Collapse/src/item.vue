@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue';
+import { computed, inject, ref } from 'vue';
 import { collapseContextKey, type CollapseItemProps } from '../types';
 defineOptions({
   name: 'AceCollapseItem',
@@ -19,6 +19,27 @@ const handleClick = () => {
   }
 
   collapseContext?.handleItemClick(props.name);
+};
+
+const transitionEvents: Record<string, (el: HTMLElement) => void> = {
+  beforeEnter(el) {
+    el.style.height = '0px';
+  },
+  enter(el) {
+    el.style.height = `${el.scrollHeight}px`;
+  },
+  afterEnter(el) {
+    el.style.height = '';
+  },
+  beforeLeave(el) {
+    el.style.height = `${el.scrollHeight}px`;
+  },
+  leave(el) {
+    el.style.height = '0px';
+  },
+  afterLeave(el) {
+    el.style.height = '';
+  },
 };
 </script>
 
@@ -40,7 +61,7 @@ const handleClick = () => {
     >
       <slot name="title">{{ title }}</slot>
     </div>
-    <Transition name="ace">
+    <Transition name="ace" v-on="transitionEvents">
       <div
         :id="`item_content_${name}`"
         class="ace-collapse-item__content"

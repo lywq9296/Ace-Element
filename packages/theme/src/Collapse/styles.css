@@ -49,17 +49,17 @@
   padding-bottom: 25px;
 }
 
-.ace-enter-from,
-.ace-leave-to {
-  opacity: 0;
-}
+/* .ace-enter-from, */
+/* .ace-leave-to { */
+/* opacity: 0; */
+/* } */
 
 .ace-enter-active,
 .ace-leave-active {
-  transition: opacity 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
 }
 
-.ace-enter-to,
-.ace-leave-from {
-  opacity: 1;
-}
+/* .ace-enter-to, */
+/* .ace-leave-from { */
+/* opacity: 1; */
+/* } */
