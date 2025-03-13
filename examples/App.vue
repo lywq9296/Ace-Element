@@ -37,17 +37,17 @@ onMounted(() => {
     <AceButton size="small">Small</AceButton>
   </div>
   <AceCollapse v-model="openedValue" accordion>
-    <AceCollapseItem name="a">
-      <template #title>
+    <AceCollapseItem name="a" title="Title A">
+      <!--  <template #title>
         <h1>nice title</h1>
-      </template>
+      </template> -->
       <h1>headline title</h1>
       <div>this is content a aaa</div>
     </AceCollapseItem>
-    <AceCollapseItem name="b" title="nice title b item b">
+    <AceCollapseItem name="b" title="Title B">
       <div>this is bbbbb test</div>
     </AceCollapseItem>
-    <AceCollapseItem name="c" title="nice cccc" disabled>
+    <AceCollapseItem name="c" title="Disabled Title" disabled>
       <div>this is cccc test</div>
     </AceCollapseItem>
   </AceCollapse>

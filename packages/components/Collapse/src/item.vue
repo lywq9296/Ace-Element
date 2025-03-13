@@ -31,17 +31,23 @@ const handleClick = () => {
   >
     <div
       :id="`item_header_${name}`"
-      class="ace-collapse-item__header"
+      :class="{
+        'ace-collapse-item__header': true,
+        'is-disabled': disabled,
+        'is-active': isCurrentActive,
+      }"
       @click="handleClick"
     >
       <slot name="title">{{ title }}</slot>
     </div>
-    <div
-      :id="`item_content_${name}`"
-      class="ace-collapse-item__content"
-      v-show="isCurrentActive"
-    >
-      <slot />
-    </div>
+    <Transition name="ace">
+      <div
+        :id="`item_content_${name}`"
+        class="ace-collapse-item__content"
+        v-show="isCurrentActive"
+      >
+        <slot />
+      </div>
+    </Transition>
   </div>
 </template>
