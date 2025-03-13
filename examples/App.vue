@@ -10,6 +10,7 @@ import type { ButtonInstance } from '@Ace-Element/components/Button/types';
 
 const buttonRef = ref<ButtonInstance | null>(null);
 
+const openedValue = ref(['a']);
 onMounted(() => {
   console.log(buttonRef.value?.ref);
 });
@@ -35,7 +36,7 @@ onMounted(() => {
     <AceButton size="large">Large</AceButton>
     <AceButton size="small">Small</AceButton>
   </div>
-  <AceCollapse>
+  <AceCollapse v-model="openedValue" accordion>
     <AceCollapseItem name="a">
       <template #title>
         <h1>nice title</h1>
