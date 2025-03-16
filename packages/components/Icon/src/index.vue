@@ -26,6 +26,7 @@ const customStyles = computed(() => {
       [`ace-icon--${props.type}`]: props.type,
     }"
     :style="customStyles"
+    v-bind="$attrs"
   >
     <FontAwesomeIcon v-bind="filteredProps" />
   </i>

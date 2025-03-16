@@ -35,6 +35,13 @@
   }
   &.is-active {
     border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+
+  .header-angle {
+    transition: transform var(--ace-transition-duration);
   }
 }
 

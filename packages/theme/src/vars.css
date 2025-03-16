@@ -48,4 +48,8 @@
   --ace-disabled-bg-color: var(--ace-fill-color-light);
   --ace-disabled-text-color: var(--ace-text-color-placeholder);
   --ace-disabled-border-color: var(--ace-border-color-light);
+
+  /* animation */
+  --ace-transition-duration: 0.3s;
+  --ace-transition-duration-fast: 0.2s;
 }

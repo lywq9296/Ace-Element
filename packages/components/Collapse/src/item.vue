@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue';
 import { collapseContextKey, type CollapseItemProps } from '../types';
+import { AceIcon } from '../../Icon';
+
 defineOptions({
   name: 'AceCollapseItem',
 });
@@ -66,6 +68,7 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
       @click="handleClick"
     >
       <slot name="title">{{ title }}</slot>
+      <AceIcon icon="angle-right" class="header-angle" />
     </div>
     <Transition name="ace" v-on="transitionEvents">
       <div v-show="isCurrentActive">
