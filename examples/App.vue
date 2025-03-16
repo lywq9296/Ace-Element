@@ -18,8 +18,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <AceIcon icon="user-secret" />
-  <AceIcon icon="arrow-up" size="2xl" spin />
+  <AceIcon icon="user-secret" type="success" />
+  <AceIcon icon="arrow-up" size="2xl" type="danger" color="#f40" />
   <div>
     <AceButton ref="buttonRef">Test Button</AceButton>
     <AceButton plain>Plain Button</AceButton>

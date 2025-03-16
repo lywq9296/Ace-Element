@@ -12,6 +12,10 @@
   "dependencies": {
     "@Ace-Element/icon": "workspace:^",
     "@Ace-Element/theme": "workspace:^",
-    "@Ace-Element/utils": "workspace:^"
+    "@Ace-Element/utils": "workspace:^",
+    "lodash.omit": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/lodash.omit": "^4.5.9"
   }
 }
