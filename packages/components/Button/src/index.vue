@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import './style';
+import { AceIcon } from '../../Icon';
 import type { ButtonProps, ButtonSlots } from '../types';
 
 const name = 'AceButton';
@@ -28,11 +29,14 @@ defineExpose({
       'is-round': round,
       'is-circle': circle,
       'is-disabled': disabled,
+      'is-loading': loading,
     }"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
   >
+    <AceIcon v-if="loading" icon="spinner" spin />
+    <AceIcon v-if="icon" :icon="icon" />
     <span v-if="$slots.default"><slot /></span>
   </button>
 </template>

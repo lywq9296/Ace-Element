@@ -91,6 +91,10 @@
     background-color: var(--ace-button-disabled-bg-color);
     border-color: var(--ace-button-disabled-border-color);
   }
+
+  [class*='ace-icon'] + span {
+    margin-left: 6px;
+  }
 }
 
 @each $val in primary, success, warning, info, danger {

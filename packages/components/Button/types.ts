@@ -13,6 +13,9 @@ export interface ButtonProps {
   circle?: boolean;
   nativeType?: ButtonNativeType;
   autofocus?: boolean;
+
+  icon?: string;
+  loading?: boolean;
 }
 
 export interface ButtonSlots {

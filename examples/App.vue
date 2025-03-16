@@ -38,7 +38,12 @@ onMounted(() => {
     <AceButton type="danger" plain>Danger</AceButton><br /><br />
     <AceButton size="large">Large</AceButton>
     <AceButton size="small">Small</AceButton>
+    <br />
+    <br />
+    <AceButton size="large" loading>Large</AceButton>
+    <AceButton size="small" icon="arrow-up">Small</AceButton>
   </div>
+
   <AceCollapse v-model="openedValue" accordion>
     <AceCollapseItem name="a" title="Title A">
       <!--  <template #title>
