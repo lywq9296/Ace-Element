@@ -96,6 +96,9 @@ importers:
 
   packages/components:
     dependencies:
+      '@Ace-Element/icon':
+        specifier: workspace:^
+        version: link:../icon
       '@Ace-Element/theme':
         specifier: workspace:^
         version: link:../theme

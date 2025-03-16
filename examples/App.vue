@@ -5,6 +5,7 @@ import {
   AceButton,
   AceCollapse,
   AceCollapseItem,
+  AceIcon,
 } from '@Ace-Element/components';
 import type { ButtonInstance } from '@Ace-Element/components/Button/types';
 
@@ -17,6 +18,8 @@ onMounted(() => {
 </script>
 
 <template>
+  <AceIcon icon="user-secret" />
+  <AceIcon icon="arrow-up" size="2xl" spin />
   <div>
     <AceButton ref="buttonRef">Test Button</AceButton>
     <AceButton plain>Plain Button</AceButton>

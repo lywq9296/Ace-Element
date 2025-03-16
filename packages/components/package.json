@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@Ace-Element/icon": "workspace:^",
     "@Ace-Element/theme": "workspace:^",
     "@Ace-Element/utils": "workspace:^"
   }

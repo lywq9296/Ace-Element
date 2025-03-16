@@ -20,6 +20,4 @@ export const install: Install<App<Element>> = (app) => {
 };
 install.installed = false;
 
-export * from './Button';
-
-export * from './Collapse';
+export * from './components';
