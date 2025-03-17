@@ -1,6 +1,8 @@
 // import type { PropType } from 'vue';
 
-export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+import type { BaseType } from '../types';
+
+export type ButtonType = BaseType;
 export type ButtonSize = 'large' | 'small';
 export type ButtonNativeType = 'button' | 'submit' | 'reset';
 
