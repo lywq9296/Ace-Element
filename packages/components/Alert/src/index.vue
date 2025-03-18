@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { AceIcon } from '../../Icon';
-import type { AlertProps } from '../types';
+import type { AlertEmits, AlertProps } from '../types';
+
+const visible = ref(true);
+const hideAlert = () => {
+  visible.value = false;
+  emits('close', visible.value);
+};
 
 defineOptions({ name: 'AceAlert' });
 
@@ -9,10 +16,15 @@ withDefaults(defineProps<AlertProps>(), {
   closable: true,
   effect: 'light',
 });
+
+const emits = defineEmits<AlertEmits>();
+
+defineExpose({ hide: () => hideAlert() });
 </script>
 
 <template>
   <div
+    v-if="visible"
     :class="{
       'ace-alert': true,
       [`ace-alert__${type}`]: type,
@@ -26,7 +38,7 @@ withDefaults(defineProps<AlertProps>(), {
       </span>
     </div>
     <div class="ace-alert__close" v-if="closable">
-      <AceIcon icon="xmark" />
+      <AceIcon icon="xmark" @click="visible = false" />
     </div>
   </div>
 </template>

@@ -6,3 +6,11 @@ export interface AlertProps {
   effect?: 'light' | 'dark';
   closable?: boolean;
 }
+
+export interface AlertEmits {
+  (e: 'close', visible: boolean): void;
+}
+
+export interface AlertInstance {
+  hide: () => void;
+}
