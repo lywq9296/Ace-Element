@@ -60,3 +60,8 @@
     --ace-alert-bg-color: var(--ace-color-$(val));
   }
 }
+
+.ace-alert-enter-from,
+.ace-alert-leave-to {
+  opacity: 0;
+}

@@ -23,22 +23,24 @@ defineExpose({ hide: () => hideAlert() });
 </script>
 
 <template>
-  <div
-    v-if="visible"
-    :class="{
-      'ace-alert': true,
-      [`ace-alert__${type}`]: type,
-      [`ace-alert__${effect}`]: effect,
-    }"
-  >
-    <div class="ace-alert__content">
-      {{ content }}
-      <span>
-        <slot />
-      </span>
+  <Transition name="ace-alert">
+    <div
+      v-if="visible"
+      :class="{
+        'ace-alert': true,
+        [`ace-alert__${type}`]: type,
+        [`ace-alert__${effect}`]: effect,
+      }"
+    >
+      <div class="ace-alert__content">
+        {{ content }}
+        <span>
+          <slot />
+        </span>
+      </div>
+      <div class="ace-alert__close" v-if="closable">
+        <AceIcon icon="xmark" @click="visible = false" />
+      </div>
     </div>
-    <div class="ace-alert__close" v-if="closable">
-      <AceIcon icon="xmark" @click="visible = false" />
-    </div>
-  </div>
+  </Transition>
 </template>
