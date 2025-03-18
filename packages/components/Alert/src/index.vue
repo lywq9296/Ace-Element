@@ -15,8 +15,8 @@ withDefaults(defineProps<AlertProps>(), {
   <div
     :class="{
       'ace-alert': true,
-      [`ace-alert--${type}`]: type,
-      [`ace-alert--${effect}`]: effect,
+      [`ace-alert__${type}`]: type,
+      [`ace-alert__${effect}`]: effect,
     }"
   >
     <div class="ace-alert__content">

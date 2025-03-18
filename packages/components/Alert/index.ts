@@ -1,7 +1,7 @@
 import Alert from './src/index.vue';
 import { withInstall } from '@Ace-Element/utils';
 
-import '@Ace-Element/theme/src/Alert';
+import './src/style';
 
 export const AceAlert = Alert;
 

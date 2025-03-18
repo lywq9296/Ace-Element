@@ -20,7 +20,7 @@ onMounted(() => {
 
 <template>
   <AceIcon icon="user-secret" type="success" />
-  <AceIcon :icon="['fal', 'xmark']" type="success" />
+  <AceIcon icon="xmark" type="success" />
   <AceIcon icon="arrow-up" size="2xl" type="danger" color="#f40" />
   <div>
     <AceButton ref="buttonRef">Test Button</AceButton>
@@ -46,10 +46,14 @@ onMounted(() => {
     <AceButton size="small" icon="arrow-up">Small</AceButton>
   </div>
   <div>
-    <AceAlert type="success" effect="dark">Success alert</AceAlert>
-    <AceAlert type="info" effect="dark">Info alert</AceAlert>
-    <AceAlert type="warning" effect="dark">Warning alert</AceAlert>
-    <AceAlert type="error" effect="dark">Error alert</AceAlert>
+    <AceAlert type="success">this is the alert</AceAlert>
+    <AceAlert type="warning">this is the alert</AceAlert>
+    <AceAlert type="info">this is the alert</AceAlert>
+    <AceAlert type="danger">this is the alert</AceAlert>
+    <AceAlert type="success" effect="dark">this is the alert</AceAlert>
+    <AceAlert type="warning" effect="dark">this is the alert</AceAlert>
+    <AceAlert type="info" effect="dark">this is the alert</AceAlert>
+    <AceAlert type="danger" effect="dark">this is the alert</AceAlert>
   </div>
   <AceCollapse v-model="openedValue" accordion>
     <AceCollapseItem name="a" title="Title A">
