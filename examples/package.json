@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@Ace-Element/components": "workspace:^"
+    "@Ace-Element/components": "workspace:^",
+    "axios": "^1.8.4"
   }
 }
