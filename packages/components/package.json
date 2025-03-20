@@ -16,6 +16,9 @@
     "lodash.omit": "^4.5.0"
   },
   "devDependencies": {
-    "@types/lodash.omit": "^4.5.9"
+    "@types/lodash.omit": "^4.5.9",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^26.0.0",
+    "vitest": "^3.0.9"
   }
 }
