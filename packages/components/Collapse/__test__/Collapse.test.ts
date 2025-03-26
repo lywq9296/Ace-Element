@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { AceCollapse, AceCollapseItem } from '../index';
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
@@ -9,7 +9,6 @@ describe('Collapse.vue', () => {
       props: {
         modelValue: ['a'],
       },
-      on: {},
       slots: {
         default: () => [
           h(
