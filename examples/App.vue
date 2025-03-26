@@ -9,6 +9,7 @@ import {
   AceAlert,
 } from '@Ace-Element/components';
 import type { ButtonInstance } from '@Ace-Element/components/Button/types';
+import VNode from './components/VNode.tsx';
 
 const buttonRef = ref<ButtonInstance | null>(null);
 
@@ -74,6 +75,7 @@ onMounted(() => {
     <a href="#">the link</a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <VNode msg="v-node" />
 </template>
 
 <style scoped>
