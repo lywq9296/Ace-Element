@@ -1,12 +1,14 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { AceCollapse, AceCollapseItem } from '../index';
 import { mount } from '@vue/test-utils';
 
 describe('Collapse.vue', () => {
   test('basic collapse', async () => {
+    const onChange = vi.fn();
+
     const wrapper = mount(
       () => (
-        <AceCollapse modelValue={['a']}>
+        <AceCollapse modelValue={['a']} onChange={onChange}>
           <AceCollapseItem name="a" title="Title A">
             content a
           </AceCollapseItem>
@@ -48,10 +50,12 @@ describe('Collapse.vue', () => {
     // 点击行为
     await firstHeader.trigger('click');
     expect(firstContent.isVisible()).toBe(false); // attachTo: document.body 解决
+    expect(onChange).toBeCalledWith([]);
 
     const secondHeader = headers[1];
     await secondHeader.trigger('click');
     expect(secondContent.isVisible()).toBe(true);
+    expect(onChange).toHaveBeenLastCalledWith(['b']);
 
     // disable
     const disableHeader = headers[2];
