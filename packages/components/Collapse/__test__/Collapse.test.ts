@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { AceCollapse, AceCollapseItem } from '../index';
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
@@ -9,6 +9,7 @@ describe('Collapse.vue', () => {
       props: {
         modelValue: ['a'],
       },
+      on: {},
       slots: {
         default: () => [
           h(
@@ -63,10 +64,17 @@ describe('Collapse.vue', () => {
     // 点击行为
     await firstHeader.trigger('click');
     expect(firstContent.isVisible()).toBeFalsy();
+    expect(wrapper.emitted()).toHaveProperty('change');
 
     const secondHeader = headerList[1];
     await secondHeader.trigger('click');
     expect(secondContent.isVisible()).toBeTruthy();
+
+    const changeEvent = wrapper.emitted('change') as any[];
+    console.table(changeEvent);
+    expect(changeEvent).toHaveLength(2);
+    expect(changeEvent[0]).toEqual([[]]);
+    expect(changeEvent[1]).toEqual([['b']]);
 
     // disabled
     const thirdHeader = headerList[2];

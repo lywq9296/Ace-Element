@@ -24,19 +24,22 @@ if (props.accordion && activeNames.value.length > 1) {
 }
 
 const handleItemClick = (name: CollapseNameType) => {
+  // 修正测试用例的引用
+  let _activeNames = [...activeNames.value];
   if (props.accordion) {
-    activeNames.value = [activeNames.value[0] === name ? '' : name];
+    _activeNames = [activeNames.value[0] === name ? '' : name];
   } else {
-    const itemIndex = activeNames.value.indexOf(name);
+    const itemIndex = _activeNames.indexOf(name);
     if (itemIndex > -1) {
-      activeNames.value.splice(itemIndex, 1);
+      _activeNames.splice(itemIndex, 1);
     } else {
-      activeNames.value.push(name);
+      _activeNames.push(name);
     }
   }
+  activeNames.value = _activeNames;
 
   emits('update:modelValue', activeNames.value);
-  emits('change', activeNames.value);
+  emits('change', _activeNames);
 };
 
 // 向子组件传递数据和函数
