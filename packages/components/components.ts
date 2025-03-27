@@ -5,3 +5,5 @@ export { AceCollapse, AceCollapseItem } from './Collapse';
 export { default as AceIcon } from './Icon';
 
 export { default as AceAlert } from './Alert';
+
+export { default as AceTooltip } from './Tooltip';

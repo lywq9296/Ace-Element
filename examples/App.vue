@@ -7,6 +7,7 @@ import {
   AceCollapseItem,
   AceIcon,
   AceAlert,
+  AceTooltip,
 } from '@Ace-Element/components';
 import type { ButtonInstance } from '@Ace-Element/components/Button/types';
 import VNode from './components/VNode.tsx';
@@ -20,6 +21,12 @@ onMounted(() => {
 </script>
 
 <template>
+  <AceTooltip placement="right">
+    <img src="./assets//vue.svg" alt="" width="125" height="125" />
+    <template #content>
+      <div>hello tooltip</div>
+    </template>
+  </AceTooltip>
   <AceIcon icon="user-secret" type="success" />
   <AceIcon icon="xmark" type="success" />
   <AceIcon icon="arrow-up" size="2xl" type="danger" color="#f40" />
