@@ -13,6 +13,7 @@
     "@Ace-Element/icon": "workspace:^",
     "@Ace-Element/theme": "workspace:^",
     "@Ace-Element/utils": "workspace:^",
+    "@popperjs/core": "^2.11.8",
     "lodash.omit": "^4.5.0"
   },
   "devDependencies": {
